@@ -1,7 +1,9 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_move : MonoBehaviour
 {
+    public int moeda = 0; 
     public float velocidade;
     public Vector2 dir;
     public Rigidbody2D rb2d;
@@ -58,7 +60,18 @@ public class Player_move : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("moedinha"))
         {
-            tomaDano(collision.gameObject.GetComponent<Inimigo>().dano);
+            moeda = moeda + 1; 
+            
+            Destroy(collision.gameObject);
+        }
+       
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+         if (collision.gameObject.CompareTag("moedinha"))
+        {
+            moeda = moeda + 1;
+
             Destroy(collision.gameObject);
         }
     }
