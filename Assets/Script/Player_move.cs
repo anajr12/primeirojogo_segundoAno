@@ -1,8 +1,10 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_move : MonoBehaviour
 {
+    public TextMeshProUGUI textoMoedas; 
     public int moeda = 0; 
     public float velocidade;
     public Vector2 dir;
@@ -13,7 +15,7 @@ public class Player_move : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        textoMoedas.text = "juroooo " + moeda + " Uauuu as moedas";
     }
 
     // Update is called once per frame
@@ -60,8 +62,9 @@ public class Player_move : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("moedinha"))
         {
-            moeda = moeda + 1; 
+            moeda = moeda + 1;
             
+
             Destroy(collision.gameObject);
         }
        
@@ -73,6 +76,7 @@ public class Player_move : MonoBehaviour
             moeda = moeda + 1;
 
             Destroy(collision.gameObject);
+            textoMoedas.text = "Suas moedas: " + moeda;   
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
