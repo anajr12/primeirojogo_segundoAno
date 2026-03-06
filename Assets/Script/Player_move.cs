@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_move : MonoBehaviour
 {
@@ -94,6 +95,7 @@ public class Player_move : MonoBehaviour
         if( vida <= 0 )
         {
           Destroy(this.gameObject);
+          SceneManager.LoadScene("SampleScene");
 
         }
     }
